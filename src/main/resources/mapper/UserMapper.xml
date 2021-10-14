@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.springbootproject.mapper.UserMapper">
+    <resultMap id="BaseResultMap" type="com.example.springbootproject.entity.User">
+        <id column="ul_id" property="id" /> <!--对应数据库表自增ID-->
+        <result column="这里添加数据库的用户名列名" property="username" /> <!--property 对应User实例类的用户属性名，例如：private String username;//用户名-->
+        <result column="这里添加数据库的密码列名" property="password" /><!--property 对应User实例类的密码属性名，例如：private String password;//用户名-->
+    </resultMap>
+
+    <!-- 步骤1：id 可自定义，目录mapper/UserMapper引用, resultType 为用户实体类-->
+    <select id="findAllUserInfo" resultType="com.example.springbootproject.entity.User">
+        <!-- 查询用户表全部用户信息-->
+        select * from user;
+    </select>
+</mapper>

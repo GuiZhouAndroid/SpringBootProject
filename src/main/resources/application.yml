@@ -1,0 +1,29 @@
+# SpringBoot资源配置
+spring:
+  datasource:
+    name: testdb  #数据库名
+    url: jdbc:mysql://localhost:3306/testdb?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC #url
+    username: root  #用户名
+    password: root  #密码
+    driver-class-name: com.mysql.cj.jdbc.Driver  #数据库链接驱动
+  # 指定静态资源文件路径
+  mvc:
+    static-path-pattern: /static/**
+  # thymeleaf模板引擎配置否：关闭缓存并刷新页面
+  thymeleaf:
+    cache: false
+    prefix: classpath:/templates/
+    suffix: .html
+    encoding: utf-8
+    mode: html
+    servlet:
+      content-type: text/html
+
+# SpringBoot端口配置
+server:
+  port: 8085
+
+# mybatis数据库框配置
+mybatis:
+  mapper-locations: classpath:mapper/*.xml  #配置映射文件
+  type-aliases-package: com.example.springbootproject.entity #配置实体类
